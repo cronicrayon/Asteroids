@@ -21,6 +21,7 @@ def game_loop(screen, timer, player):
             if event.type == pygame.QUIT:
                 return  
         pygame.Surface.fill(screen, "black") # Clear the screen before drawing new frame
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip() # Update the display with all changes
 if __name__ == "__main__":
