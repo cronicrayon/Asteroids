@@ -38,12 +38,11 @@ def game_loop(screen, timer, updatable, drawable, asteroids, shots):
         pygame.Surface.fill(screen, "black") # Clear the screen before drawing new frame
         for object in updatable:
             object.update(dt)
-        for asteroid in asteroids:
-                
+        for asteroid in asteroids:     
             for shot in shots:
                 if asteroid.check_collisions(shot):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
             if asteroid.check_collisions(player):
                     print("Game Over")
                     return
